@@ -1,8 +1,8 @@
 const { ObjectId } = require("mongoose").Types;
 const User = require("../models/user");
 
-const createUser = async ({ email, name, password }) => {
-  const user = await User.create({ email, name, password });
+const createUser = async ({ email, firstName, lastName, password }) => {
+  const user = await User.create({ email, firstName, lastName, password });
   return user;
 };
 
