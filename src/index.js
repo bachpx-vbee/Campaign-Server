@@ -4,6 +4,7 @@ const compression = require("compression");
 const cors = require("cors");
 const helmet = require("helmet");
 const httpLogger = require("http-logger");
+const cookieParser = require("cookie-parser");
 
 const camelCaseReq = require("./middlewares/camelCaseReq");
 const omitReq = require("./middlewares/omitReq");
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(camelCaseReq);
 app.use(omitReq);
 app.use(snakeCaseRes());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "..", "public")));
 
 require("./routes")(app);
