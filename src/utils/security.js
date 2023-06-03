@@ -15,8 +15,6 @@ const encrypt = (text) => {
   return `${iv.toString("hex")}:${encrypted.toString("hex")}`;
 };
 
-console.log(PEPPER.length);
-
 const decrypt = (text) => {
   const textParts = text.split(":");
   const iv = Buffer.from(textParts.shift(), "hex");
