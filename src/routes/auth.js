@@ -19,5 +19,9 @@ router.get(
   auth,
   asyncMiddleware(authController.verifyAccessToken)
 );
+router.post(
+  "/auths/refresh-token",
+  asyncMiddleware(authController.refreshToken)
+);
 
 module.exports = router;
