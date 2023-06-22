@@ -23,5 +23,13 @@ router.post(
   "/auths/refresh-token",
   asyncMiddleware(authController.refreshToken)
 );
+router.post(
+  "/auths/forgot-password",
+  asyncMiddleware(authController.forgotPassword)
+);
+router.post(
+  "/auths/reset-password/:token",
+  asyncMiddleware(authController.resetPassword)
+);
 
 module.exports = router;
