@@ -1,12 +1,14 @@
+const { kStringMaxLength } = require("buffer");
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
+    campaignId: String,
     title: String,
     content: String,
-    status: {
-      type: String,
-      default: "done",
+    version: {
+      type: Number,
+      default: 1,
     },
   },
   {
@@ -15,4 +17,4 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Campaign", userSchema);
+module.exports = mongoose.model("Version", userSchema);
