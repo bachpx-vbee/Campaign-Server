@@ -11,8 +11,8 @@ const auth = async (req, res, next) => {
 
   if (tokenType !== "Bearer") throw new Error(codes.UNAUTHORIZED);
 
-  const { user } = await authService.verifyAccessToken(accessToken);
-  req.user = user;
+  const { _id } = await authService.verifyAccessToken(accessToken);
+  req.user_id = _id;
   if (["/auths/logout", "/auths/verify"].includes(req.path)) {
     req.accessToken = accessToken;
   }
