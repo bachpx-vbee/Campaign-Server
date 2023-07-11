@@ -25,6 +25,12 @@ const createCampaign = async ({ userId, data }) => {
   return campaign;
 };
 
+const getCampaign = async (campaignId) => {
+  const campaign = await campaignDao.getCampaignById(campaignId);
+  return campaign;
+};
+
 module.exports = {
   createCampaign,
+  getCampaign,
 };
