@@ -6,6 +6,12 @@ const createCampaign = async (createFields) => {
   return campaign;
 };
 
+const getCampaignById = async (campaignId) => {
+  const campaign = await Campaign.findById(campaignId);
+  return campaign;
+};
+
 module.exports = {
   createCampaign,
+  getCampaignById,
 };

@@ -9,4 +9,9 @@ router.post(
   asyncMiddleware(campaignController.createCampaign)
 );
 
+router.get(
+  "/campaign/get-campaign/:campaignId",
+  asyncMiddleware(campaignController.getCampaign)
+);
+
 module.exports = router;
