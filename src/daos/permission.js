@@ -11,7 +11,12 @@ const getPermission = async (conditions) => {
   return permission;
 };
 
+const deletePermission = async (permissionId) => {
+  await Permission.findByIdAndDelete(permissionId);
+};
+
 module.exports = {
   createPermission,
   getPermission,
+  deletePermission,
 };

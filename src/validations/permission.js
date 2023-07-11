@@ -1,4 +1,5 @@
 const { Joi, validate } = require("express-validation");
+const { validateObjectId } = require("./utils");
 
 const createPermission = {
   body: Joi.object({
@@ -9,6 +10,21 @@ const createPermission = {
   }),
 };
 
+const deletePermissionById = {
+  params: Joi.object({
+    permissionId: Joi.string()
+      .custom((value, helpers) =>
+        validateObjectId("permissionId", value, helpers)
+      )
+      .messages({
+        "any.invalid": "permissionId must be a valid objectId",
+      }),
+  }),
+};
+
 module.exports = {
   createPermissionValidate: validate(createPermission, { keyByField: true }),
+  deletePermissionByIdValidate: validate(deletePermissionById, {
+    keyByField: true,
+  }),
 };
