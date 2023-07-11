@@ -11,4 +11,6 @@ module.exports = {
   USER_EXISTS: 1003,
 
   CAMPAIGN_NOT_FOUND: 1004,
+
+  PERMISSION_EXISTS: 1005,
 };
