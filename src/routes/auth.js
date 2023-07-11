@@ -1,7 +1,12 @@
 const router = require("express").Router();
 const asyncMiddleware = require("../middlewares/async");
 const { auth } = require("../middlewares/auth");
-const { loginValidate, registerValidate } = require("../validations/auth");
+const {
+  loginValidate,
+  registerValidate,
+  forgotPasswordValidate,
+  resetPasswordValidate,
+} = require("../validations/auth");
 const authController = require("../controllers/auth");
 
 router.post(
@@ -25,10 +30,12 @@ router.post(
 );
 router.post(
   "/auths/forgot-password",
+  forgotPasswordValidate,
   asyncMiddleware(authController.forgotPassword)
 );
 router.post(
   "/auths/reset-password/:token",
+  resetPasswordValidate,
   asyncMiddleware(authController.resetPassword)
 );
 
