@@ -8,6 +8,10 @@ const getErrorMessage = (code) => {
       return "Wrong password";
     case codes.USER_EXISTS:
       return "User already exists";
+    case codes.PERMISSION_EXISTS:
+      return "Permission already exists";
+    case codes.CAMPAIGN_NOT_FOUND:
+      return "Campaign is not found";
     default:
       return null;
   }
