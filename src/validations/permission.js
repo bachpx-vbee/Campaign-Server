@@ -22,9 +22,17 @@ const deletePermissionById = {
   }),
 };
 
+const getPermissions = {
+  body: Joi.object({
+    offset: Joi.number(),
+    limit: Joi.number(),
+  }),
+};
+
 module.exports = {
   createPermissionValidate: validate(createPermission, { keyByField: true }),
   deletePermissionByIdValidate: validate(deletePermissionById, {
     keyByField: true,
   }),
+  getPermissionsValidate: validate(getPermissions, { keyByField: true }),
 };

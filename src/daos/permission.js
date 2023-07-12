@@ -1,5 +1,6 @@
 const { ObjectId } = require("mongoose").Types;
 const Permission = require("../models/permission");
+const { find } = require("./utils/find");
 
 const createPermission = async (createFields) => {
   const permission = await Permission.create(createFields);
@@ -15,8 +16,14 @@ const deletePermission = async (permissionId) => {
   await Permission.findByIdAndDelete(permissionId);
 };
 
+const getAllPermission = async (conditions) => {
+  const permissions = await find(Permission, conditions);
+  return permissions;
+};
+
 module.exports = {
   createPermission,
   getPermission,
   deletePermission,
+  getAllPermission,
 };

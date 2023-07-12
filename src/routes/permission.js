@@ -5,6 +5,7 @@ const { auth } = require("../middlewares/auth");
 const {
   createPermissionValidate,
   deletePermissionByIdValidate,
+  getPermissionsValidate,
 } = require("../validations/permission");
 
 router.post(
@@ -19,6 +20,13 @@ router.delete(
   auth,
   deletePermissionByIdValidate,
   asyncMiddleware(permissionController.deletePermission)
+);
+
+router.get(
+  "/permission/get-all-permission",
+  auth,
+  getPermissionsValidate,
+  asyncMiddleware(permissionController.getAllPermission)
 );
 
 module.exports = router;
