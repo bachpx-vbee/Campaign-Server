@@ -21,9 +21,19 @@ const getAllPermission = async (conditions) => {
   return permissions;
 };
 
+const updatePermission = async (permissionId, createFields) => {
+  const permission = await Permission.findByIdAndUpdate(
+    permissionId,
+    createFields,
+    { new: true }
+  );
+  return permission;
+};
+
 module.exports = {
   createPermission,
   getPermission,
   deletePermission,
   getAllPermission,
+  updatePermission,
 };

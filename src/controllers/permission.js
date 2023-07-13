@@ -23,8 +23,19 @@ const getAllPermission = async (req, res) => {
   return res.send({ status: 1, result: { permissions } });
 };
 
+const updatePermission = async (req, res) => {
+  const { permissionId } = req.params;
+  const data = req.body;
+  const permission = await permissionService.updatePermission(
+    permissionId,
+    data
+  );
+  return res.send({ status: 1, result: { permission } });
+};
+
 module.exports = {
   createPermission,
   deletePermission,
   getAllPermission,
+  updatePermission,
 };
