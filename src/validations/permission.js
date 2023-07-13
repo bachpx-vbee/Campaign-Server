@@ -23,7 +23,7 @@ const deletePermissionById = {
 };
 
 const getPermissions = {
-  body: Joi.object({
+  query: Joi.object({
     offset: Joi.number(),
     limit: Joi.number(),
   }),

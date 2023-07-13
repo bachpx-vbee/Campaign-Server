@@ -13,7 +13,9 @@ const deletePermission = async (req, res) => {
 };
 
 const getAllPermission = async (req, res) => {
-  const { offset, limit } = req.body;
+  let { offset, limit } = req.query;
+  offset = parseInt(offset, 10);
+  limit = parseInt(limit, 10);
   const permissions = await permissionService.getAllPermission({
     offset,
     limit,
