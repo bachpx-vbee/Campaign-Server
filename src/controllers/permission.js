@@ -12,7 +12,17 @@ const deletePermission = async (req, res) => {
   return res.send({ status: 1 });
 };
 
+const getAllPermission = async (req, res) => {
+  const { offset, limit } = req.body;
+  const permissions = await permissionService.getAllPermission({
+    offset,
+    limit,
+  });
+  return res.send({ status: 1, result: { permissions } });
+};
+
 module.exports = {
   createPermission,
   deletePermission,
+  getAllPermission,
 };

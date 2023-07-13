@@ -34,7 +34,7 @@ const find = async (
   const documents = await model
     .find(search ? { $or: s, ...dataQuery } : dataQuery)
     .skip(offset || 0)
-    .limit(limit || null)
+    .limit(limit || 10)
     .sort(getSortQuery(sort))
     .select(fields ? getSelectQuery(fields) : {})
     .lean();

@@ -18,7 +18,13 @@ const deletePermission = async (permissionId) => {
   await permissionDao.deletePermission(permissionId);
 };
 
+const getAllPermission = async (conditions) => {
+  const permissions = await permissionDao.getAllPermission(conditions);
+  return permissions;
+};
+
 module.exports = {
   createPermission,
   deletePermission,
+  getAllPermission,
 };
